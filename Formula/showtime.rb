@@ -10,9 +10,9 @@ class Showtime < Formula
   depends_on "fmt"
   depends_on "swig"
   depends_on "boost"
-  depends_on "mystfit/showtime-formula/zeromq"
-  depends_on "mystfit/showtime-formula/czmq"
-  depends_on "mystfit/showtime-formula/nlohmann_json"
+  depends_on "mystfit/showtime/zeromq"
+  depends_on "mystfit/showtime/czmq"
+  depends_on "mystfit/showtime/nlohmann_json"
 
   def install
     system "cmake", "-DBUILD_DRAFTS=ON", "-DBUILD_STATIC=ON", "-DBUILD_SHARED=ON", "-DCMAKE_PREFIX_PATH=#{HOMEBREW_PREFIX}", *std_cmake_args, "."
