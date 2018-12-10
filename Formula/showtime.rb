@@ -12,7 +12,7 @@ class Showtime < Formula
   depends_on "fmt"
   depends_on "swig"
   depends_on "boost"
-  depends_on "mystfit/showtime/nlohmann_json"
+  depends_on "nlohmann/json/nlohmann_json" => "with-cmake"
   
   args = []
   if build.with? "drafts"
