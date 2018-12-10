@@ -4,14 +4,6 @@ class Czmq < Formula
   url "https://github.com/zeromq/czmq/releases/download/v4.1.1/czmq-4.1.1.tar.gz"
   sha256 "f00ff419881dc2a05d0686c8467cd89b4882677fc56f31c0e2cc81c134cbb0c0"
 
-  bottle do
-    cellar :any
-    sha256 "38d2b6120f6d06c9a45c895f52949a2ddd01f72d7e91d3ff83cd39c954492300" => :mojave
-    sha256 "1e414d17fd6c0a4dd9939e84091b5073c23d2477569d12b0ee08d6a425abea14" => :high_sierra
-    sha256 "c0b2b82ae2edfa4dc97f48789ed87050dc0fb602e85a2b510fee6336afe17a5c" => :sierra
-    sha256 "d6966061fd61f2440713473c4f65bb9fd541be2f3be78e1d3f56ca54d366202e" => :el_capitan
-  end
-
   head do
     url "https://github.com/zeromq/czmq.git"
 
@@ -23,7 +15,7 @@ class Czmq < Formula
   depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
-  depends_on "zeromq"
+  depends_on "mystfit/showtime/zeromq"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
