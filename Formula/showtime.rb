@@ -27,6 +27,12 @@ class Showtime < Formula
   end
 
   test do
-    system "ctest", "-C", "Release"
+    (testpath/"test.cpp").write <<~EOS
+      #include <showtime/Showtime.h>
+      zst_init("homebrew_test", true);
+      zst_destroy();
+    EOS
+    system ENV.cxx, "test.cpp", "-I#{include}", "-o", "test"
+    system "./test"
   end
 end
