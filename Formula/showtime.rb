@@ -10,8 +10,8 @@ class Showtime < Formula
   depends_on "fmt"
   depends_on "swig"
   depends_on "boost"
-  depends_on "mystfit/showtime/zeromq"
-  depends_on "mystfit/showtime/czmq"
+  depends_on "zeromq" => "with-drafts"
+  depends_on "czmq" => "with-drafts"
   depends_on "mystfit/showtime/nlohmann_json"
 
   def install
