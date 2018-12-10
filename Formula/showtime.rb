@@ -28,7 +28,7 @@ class Showtime < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include <showtime/Showtime.h>
+      #include <Showtime.h>
       zst_init("homebrew_test", true);
       zst_destroy();
     EOS
