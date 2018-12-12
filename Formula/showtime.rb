@@ -6,6 +6,8 @@ class Showtime < Formula
   #sha256 "1fa7efa8a5926d59e5861913778c06b634d6f055e3ded0e282d6058350996c75"
 
   option "with-drafts"
+  option "with-static"
+
   draft_args = []
   draft_args << "with-drafts" if build.with? "drafts"
 
@@ -19,8 +21,9 @@ class Showtime < Formula
   depends_on "czmq" => draft_args
 
   def install
-    args = ["-DBUILD_STATIC=ON", "-DBUILD_SHARED=ON", "-DCMAKE_PREFIX_PATH=#{HOMEBREW_PREFIX}", "-DBoost_USE_STATIC_LIBS=ON"]
+    args = ["-DBUILD_SHARED=ON", "-DCMAKE_PREFIX_PATH=#{HOMEBREW_PREFIX}", "-DBoost_USE_STATIC_LIBS=ON"]
     args << "-DBUILD_DRAFTS=ON" if build.with? "drafts"
+    args << "-DBUILD_STATIC=ON" if build.with? "static"
     system "cmake", args , *std_cmake_args, "."
     system "make"
     system "make", "install"
