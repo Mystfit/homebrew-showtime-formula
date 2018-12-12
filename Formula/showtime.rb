@@ -21,7 +21,7 @@ class Showtime < Formula
   depends_on "czmq" => draft_args
 
   def install
-    args = ["-DBUILD_SHARED=ON", "-DCMAKE_PREFIX_PATH=#{HOMEBREW_PREFIX}", "-DBoost_USE_STATIC_LIBS=ON"]
+    args = ["-DBUILD_SHARED=ON", "-DCMAKE_PREFIX_PATH=#{HOMEBREW_PREFIX}"]
     args << "-DBUILD_DRAFTS=ON" if build.with? "drafts"
     args << "-DBUILD_STATIC=ON" if build.with? "static"
     system "cmake", args , *std_cmake_args, "."
