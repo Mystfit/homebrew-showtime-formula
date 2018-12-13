@@ -15,7 +15,7 @@ class Showtime < Formula
   depends_on "msgpack"
   depends_on "fmt"
   depends_on "swig"
-  depends_on "mystfit/showtime/boost"
+  depends_on "mystfit/showtime/boost" => "with-fpic"
   depends_on "nlohmann/json/nlohmann_json" => "with-cmake"
   depends_on "zeromq" => draft_args
   depends_on "czmq" => draft_args
