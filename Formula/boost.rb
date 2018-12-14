@@ -5,12 +5,12 @@ class Boost < Formula
   sha256 "7f6130bc3cf65f56a618888ce9d5ea704fa10b462be126ad053e80e553d6d8b7"
   head "https://github.com/boostorg/boost.git"
 
-  bottle do
-    cellar :any
-    sha256 "d447d437cd81b059b61fef235e8f2099434a587fff3af319b8f32971096da6ad" => :mojave
-    sha256 "07dbc64ae90c2d1a5d496621b47bcf4e8a660392a02d64fa5fe780dba5e47f88" => :high_sierra
-    sha256 "40f3b92d543b9ffe437f1724c26ab55f9873e59fdc7afd46d82c83239a03fa9b" => :sierra
-  end
+  # bottle do
+  #   cellar :any
+  #   sha256 "d447d437cd81b059b61fef235e8f2099434a587fff3af319b8f32971096da6ad" => :mojave
+  #   sha256 "07dbc64ae90c2d1a5d496621b47bcf4e8a660392a02d64fa5fe780dba5e47f88" => :high_sierra
+  #   sha256 "40f3b92d543b9ffe437f1724c26ab55f9873e59fdc7afd46d82c83239a03fa9b" => :sierra
+  # end
 
   option "with-icu4c", "Build regexp engine with icu support"
   option "with-fpic", "Enable position independant code for static libs"
@@ -54,7 +54,7 @@ class Boost < Formula
             "-d2",
             "-j#{ENV.make_jobs}",
             "--layout=tagged",
-            "--user-config=user-config.jam",
+            #"--user-config=user-config.jam",
             "-sNO_LZMA=1",
             "install"]
 
