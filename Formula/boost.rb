@@ -25,9 +25,9 @@ class Boost < Formula
 
   def install
     # Force boost to compile with the desired compiler
-    open("user-config.jam", "a") do |file|
-      file.write "using darwin : : #{ENV.cxx} ;\n"
-    end
+    # open("user-config.jam", "a") do |file|
+    #   file.write "using darwin : : #{ENV.cxx} ;\n"
+    # end
 
     # libdir should be set by --prefix but isn't
     bootstrap_args = ["--prefix=#{prefix}", "--libdir=#{lib}"]
@@ -44,9 +44,9 @@ class Boost < Formula
 
     # Boost.Log cannot be built using Apple GCC at the moment. Disabled
     # on such systems.
-    without_libraries << "log" if ENV.compiler == :gcc
+    #without_libraries << "log" if ENV.compiler == :gcc
 
-    bootstrap_args << "--without-libraries=#{without_libraries.join(",")}"
+    #bootstrap_args << "--without-libraries=#{without_libraries.join(",")}"
 
     # layout should be synchronized with boost-python and boost-mpi
     args = ["--prefix=#{prefix}",
@@ -86,18 +86,18 @@ class Boost < Formula
     system "./b2", *args
   end
 
-  def caveats
-    s = ""
-    # ENV.compiler doesn't exist in caveats. Check library availability
-    # instead.
-    if Dir["#{lib}/libboost_log*"].empty?
-      s += <<~EOS
-        Building of Boost.Log is disabled because it requires newer GCC or Clang.
-      EOS
-    end
+  # def caveats
+  #   s = ""
+  #   # ENV.compiler doesn't exist in caveats. Check library availability
+  #   # instead.
+  #   if Dir["#{lib}/libboost_log*"].empty?
+  #     s += <<~EOS
+  #       Building of Boost.Log is disabled because it requires newer GCC or Clang.
+  #     EOS
+  #   end
 
-    s
-  end
+  #   s
+  # end
 
   test do
     (testpath/"test.cpp").write <<~EOS
