@@ -72,6 +72,7 @@ class Boost < Formula
 
     if build.with? "fpic"
       args << "cxxflags=-fpic"
+      args << "cflags=-fpic"
     end
 
     # Boost is using "clang++ -x c" to select C compiler which breaks C++14
